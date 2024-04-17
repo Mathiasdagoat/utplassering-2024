@@ -9,3 +9,16 @@ socket.on("connect", ()=> {
 socket.on("disconnect", () => {
     console.log(socket.id);
 });
+
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+        displayText();
+    }
+}
+
+function displayText() {
+var inputText = document.getElementById("inputField").value;
+document.getElementById("output").innerText = inputText;
+}
+
+document.getElementById("inputField").addEventListener("keydown", handleKeyPress);

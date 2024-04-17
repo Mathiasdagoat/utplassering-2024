@@ -26,15 +26,14 @@
     text-align: center;
   }
 
+  #output{
+    margin-top: 20px;
+  }
     </style>
 <script src="index.js" type="module">
-    function displayText() {
-    var inputText = document.getElementById("inputField").value;
-    document.getelementById("output").innerText = inputText;
-    }
 </script>
 
-<input type="text" id="inputField" oninput="displayText()">
+<input type="text" id="inputField" onkeydown="handleKeyPress(event)">
 
 <div class="flexbox">
     <div id="output"></div>
