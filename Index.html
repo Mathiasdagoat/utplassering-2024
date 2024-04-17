@@ -1,19 +1,41 @@
 <body>
     <style>
+
+  body{
+    background-color:grey;
+  }
+
   .flexbox {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(90, 88, 88);
     color: #fff;
     padding: 10px 10px;
     margin: 4%;
     width: 20%;
     height: 250px;
     position: relative;
-    top: 450px;
+    top: 350px;
     z-index: 999;
     left: 0%;
+  }
+
+  .flexbox2 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:  rgb(90, 88, 88);
+    color: #fff;
+    padding: 10px 10px;
+    margin: 4%;
+    width: 102%;
+    height: 100px;
+    position: relative;
+    top: -450px;
+    z-index: 999;
+    left: -100px;
+    font-size: 100px;
   }
 
   input{
@@ -24,6 +46,8 @@
     height: 50px;
     font-size: 40px;
     text-align: center;
+    border-color: black;
+    border-width: 5px;
   }
 
   #output{
@@ -38,6 +62,10 @@
 <script src="index.js" type="module"></script>
 
 <div class="flexbox"></div>
+
+<div class="flexbox2">
+  <a>HANGMAN</a>
+</div>
 
 </body>
 <head>
