@@ -1,8 +1,4 @@
 <body>
-    <script src="index.js" type="module">
-        
-    </script>
-
     <style>
         .flexbox {
     display: flex;
@@ -31,11 +27,17 @@
   }
 
     </style>
+<script src="index.js" type="module">
+    function displayText() {
+    var inputText = document.getElementById("inputField").value;
+    document.getelementById("output").innerText = inputText;
+    }
+</script>
 
-<input type="text">
+<input type="text" id="inputField" oninput="displayText()">
 
 <div class="flexbox">
-    <div></div>
+    <div id="output"></div>
 </div>
 
 </body>
