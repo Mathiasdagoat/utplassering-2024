@@ -1,5 +1,5 @@
 <body>
-    <button onclick="toggleBackgroundColor()">Toggle dark mode</button>
+    <button onclick="toggleBackgroundColor()">Toggle dark mode on/off</button>
     <style>
 
   .flexbox {
@@ -52,7 +52,7 @@
   input{
     position: relative;
     top: 80%;
-    left: 41%;
+    left: 38%;
     width: 50px;
     height: 50px;
     font-size: 40px;
@@ -63,6 +63,9 @@
 
   #output{
     margin-top: 20px;
+    display: block;
+    color: black;
+    font-size: 50px;
   }
 
   .darkmode{
@@ -75,35 +78,58 @@
     top: 100px;
   }
 
-  button > .flexbox {
-    background-color: lightgray;
+  p{
+    position: relative;
+    top: -200px;
+    align-self: center;
+    left: 49%;
+    width: 20px;
   }
     </style>
 
 <script>
 
     function toggleBackgroundColor() {
-        var guessBox = document.getElementsByClassName("guessBox");
-        guessBox.innerHTML += "<p>Beedr</p>";
         document.body.classList.toggle('darkmode');
     }
+    var inputElement = document.getElementById('inputField');
 
+    inputElement.addEventListener('keydown', function(event) {
+            if (inputElement.value.length >= 1) {
+                event.preventDefault();
+}
+});
 
+    function handleKeyPress(event) {
+    if (event.key === "Enter") {    
+        displayText();
+    }
+}
+
+function displayText() {
+    const inputText = document.getElementById("inputField").value;
+    document.getElementById("output").innerText = inputText;
+    console.log(inputText);
+}
+
+document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
 
 </script>
 
-<input type="text">
+<input type="text" id="inputField" onkeydown="handleKeyPress(event)">
 
 
 <script src="index.js" type="module"></script>
 
 <div class="flexbox">
-    <div className="guessBox"></div>
+  <div id="output"></div>
 </div>
 
 <div class="flexbox2">
   <a>HANGMAN</a>
 </div>
+
+<p>jaas</p>
 
 </body>
 <head>
