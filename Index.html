@@ -16,7 +16,7 @@
     width: 20%;
     height: 250px;
     position: relative;
-    top: 350px;
+    top: 150px;
     z-index: 999;
     left: 0%;
   }
@@ -42,7 +42,7 @@
     width: 102%;
     height: 100px;
     position: relative;
-    top: -450px;
+    top: -627px;
     z-index: 999;
     left: -100px;
     font-size: 100px;
@@ -51,8 +51,8 @@
 
   input{
     position: relative;
-    top: 80%;
-    left: 38%;
+    top: 60%;
+    left: 12%;
     width: 50px;
     height: 50px;
     font-size: 40px;
@@ -75,7 +75,7 @@
 
   button{
     position: relative;
-    top: 100px;
+    top: -100px;
   }
 
   p{
@@ -97,7 +97,7 @@
             position: relative;
             margin-right: 10px; /* Increase the space between letters */
             margin-bottom: 20px; /* Increase the space between lines */
-            top: -300px;
+            top: -400px;
             width: 80px;
         }
         .hangman-letter::after {
@@ -117,7 +117,7 @@
           margin: 1px;
           position: relative;
           left: 3%;
-          top: -255px;
+          top: -450px;
           width: 14%;
           height: 20px;
           border-radius: 55%;
@@ -130,11 +130,17 @@
           margin: 1px;
           position: relative;
           left: 3%;
-          top: -260px;
+          top: -500px;
           width: 14%;
           height: 20px;
           border-radius: 55%;
           text-align: center;
+        }
+
+        canvas {
+          position: relative;
+          top: 150px;
+          left: 25%;
         }
     </style>
 
@@ -165,8 +171,21 @@ function displayText() {
 
 document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
 
+const canvas = document.getElementById("stickman");
+const ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(100, 50);
+ctx.lineWidth = 10;
+ctx.strokeStyle = "red";
+ctx.stroke();
 
 </script>
+
+<canvas id="stickman" width="350" height="225" style="border:1px solid #000000;">
+  Sorry, your browser does not support canvas.
+  </canvas>
 
 <input type="text" id="inputField" onkeydown="handleKeyPress(event)">
 
