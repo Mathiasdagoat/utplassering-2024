@@ -78,8 +78,12 @@
     top: 100px;
   }
 
-  button > .flexbox {
-    background-color: lightgray;
+  p{
+    position: relative;
+    top: -200px;
+    align-self: center;
+    left: 49%;
+    width: 20px;
   }
 
   .hangman-container {
@@ -113,6 +117,13 @@
     function toggleBackgroundColor() {
         document.body.classList.toggle('darkmode');
     }
+    var inputElement = document.getElementById('inputField');
+
+    inputElement.addEventListener('keydown', function(event) {
+            if (inputElement.value.length >= 1) {
+                event.preventDefault();
+}
+});
 
     function handleKeyPress(event) {
     if (event.key === "Enter") {      
@@ -143,6 +154,7 @@ document.getElementById("inputField").addEventListener("keydown", handleKeyPress
   <a>HANGMAN</a>
 </div>
 
+<<<<<<< HEAD
 <div class="hangman-container">
   <div class="hangman-word" id="hangmanWord">
       <span class="hangman-letter">P</span>
@@ -154,6 +166,9 @@ document.getElementById("inputField").addEventListener("keydown", handleKeyPress
       <span class="hangman-letter">R</span>
   </div>
 </div>
+=======
+<p>jaas</p>
+>>>>>>> 385d883d2490bdc1c14efc9778c9e86f3cfce44f
 
 </body>
 
