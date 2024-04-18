@@ -6,7 +6,7 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background-color: rgb(90, 90, 90);
+    background-color: rgb(0, 0, 0);
     color: #fff;
     border-color: rgb(0, 0, 0);
     border-width: 50px;
@@ -81,6 +81,31 @@
   button > .flexbox {
     background-color: lightgray;
   }
+
+  .hangman-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .hangman-letter {
+            display: inline-block;
+            font-size: 50px;
+            font-weight: bold;
+            position: relative;
+            margin-right: 10px; /* Increase the space between letters */
+            margin-bottom: 20px; /* Increase the space between lines */
+            top: -300px;
+            width: 80px;
+        }
+        .hangman-letter::after {
+            content: "";
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid black; /* Change from dotted to solid */
+            position: absolute;
+            bottom: -3px; /* Adjust the position of the line */
+            left: 0;
+        }
+
     </style>
 
 <script>
@@ -90,7 +115,7 @@
     }
 
     function handleKeyPress(event) {
-    if (event.key === "Enter") {    
+    if (event.key === "Enter") {      
         displayText();
     }
 }
@@ -118,7 +143,25 @@ document.getElementById("inputField").addEventListener("keydown", handleKeyPress
   <a>HANGMAN</a>
 </div>
 
+<div class="hangman-container">
+  <div class="hangman-word" id="hangmanWord">
+      <span class="hangman-letter">P</span>
+      <span class="hangman-letter">O</span>
+      <span class="hangman-letter">T</span>
+      <span class="hangman-letter">E</span>
+      <span class="hangman-letter">T</span>
+      <span class="hangman-letter">E</span>
+      <span class="hangman-letter">R</span>
+  </div>
+</div>
+
 </body>
+
+
+
 <head>
     <link rel="stylesheet" href="ting.css">
 </head>
+
+
+
