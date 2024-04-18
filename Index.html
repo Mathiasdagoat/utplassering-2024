@@ -83,8 +83,13 @@
 <script>
 
     function toggleBackgroundColor() {
+        var guessBox = document.getElementsByClassName("guessBox");
+        guessBox.innerHTML += "<p>Beedr</p>";
         document.body.classList.toggle('darkmode');
     }
+
+
+
 </script>
 
 <input type="text">
@@ -93,7 +98,7 @@
 <script src="index.js" type="module"></script>
 
 <div class="flexbox">
-    <div></div>
+    <div className="guessBox"></div>
 </div>
 
 <div class="flexbox2">
