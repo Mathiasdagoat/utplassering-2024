@@ -31,6 +31,46 @@ ctx.lineWidth = 2;
 ctx.strokeStyle = "brown";
 ctx.stroke();
 
+ctx.beginPath();
+ctx.arc(170,100,20,0,2*Math.PI);
+ctx.strokeStyle = "black";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(170,120);
+ctx.lineTo(170,170);
+ctx.lineWidth = 2;
+ctx.strokeStyle = "black";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(170,120);
+ctx.lineTo(150,150);
+ctx.lineWidth = 2;
+ctx.strokeStyle = "black";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(170,120);
+ctx.lineTo(190,150);
+ctx.lineWidth = 2;
+ctx.strokeStyle = "black";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(170,170);
+ctx.lineTo(140,210);
+ctx.lineWidth = 2;
+ctx.strokeStyle = "black";
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(170,170);
+ctx.lineTo(200,210);
+ctx.lineWidth = 2;
+ctx.strokeStyle = "black";
+ctx.stroke();
+
 const socket = io();
 
 socket.on("connect", ()=> {
