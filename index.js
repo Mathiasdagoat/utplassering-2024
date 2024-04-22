@@ -1,5 +1,6 @@
 import{ io } from "socket.io-client";
 
+
 const canvas = document.getElementById("stickman");
 const ctx = canvas.getContext("2d");
 
@@ -44,14 +45,14 @@ ctx.strokeStyle = "black";
 ctx.stroke();
 
 ctx.beginPath();
-ctx.moveTo(170,120);
+ctx.moveTo(170,125);
 ctx.lineTo(150,150);
 ctx.lineWidth = 2;
 ctx.strokeStyle = "black";
 ctx.stroke();
 
 ctx.beginPath();
-ctx.moveTo(170,120);
+ctx.moveTo(170,125);
 ctx.lineTo(190,150);
 ctx.lineWidth = 2;
 ctx.strokeStyle = "black";
@@ -71,7 +72,7 @@ ctx.lineWidth = 2;
 ctx.strokeStyle = "black";
 ctx.stroke();
 
-const socket = io();
+const socket = io("http://localhost:3000");
 
 socket.on("connect", ()=> {
     console.log(socket.id);
