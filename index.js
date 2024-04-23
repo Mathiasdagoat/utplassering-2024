@@ -97,8 +97,10 @@ ctx.stroke();
 }
 
 window.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const username = localStorage.getItem('username');
-    if (username) {
+
+    if (isLoggedIn && username) {
         document.getElementById('usernameList').style.display = 'block';
         document.getElementById('loggedInUsername').textContent = username;
         document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
@@ -118,13 +120,19 @@ document.getElementById('usernameForm').addEventListener('submit', function(even
 });
 
 function saveUsername(username) {
-
     localStorage.setItem('username', username);
+    localStorage.setItem('isLoggedIn', 'true'); 
+    console.log('User logged in');
 }
 
 window.addEventListener('beforeunload', function() {
     localStorage.removeItem('username');
+    localStorage.setItem('isLoggedIn', 'false'); 
+    console.log('User logged in');    
 });
+
+
+
 
 
 const socket = io("http://localhost:3000");
@@ -140,4 +148,5 @@ socket.on("disconnect", () => {
 });
 
 socket.emit("hello", "world");
+
 
