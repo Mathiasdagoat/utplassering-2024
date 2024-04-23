@@ -132,7 +132,14 @@ window.addEventListener('beforeunload', function() {
 });
 
 
+let boxNone = 3;
 
+if(boxNone == 3) {
+    var flexbox3Elements = document.querySelectorAll(".flexbox4");
+    flexbox3Elements.forEach(function(element) {
+        element.style.display = "none";
+    });
+}
 
 
 const socket = io("http://localhost:3000");

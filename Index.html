@@ -121,7 +121,7 @@
           margin: 1px;
           position: relative;
           left: 3%;
-          top: -70%;
+          top: -76.3%;
           width: 14%;
           height: 3%;
           border-radius: 55%;
@@ -184,64 +184,6 @@ function displayText() {
 
 document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
 
-document.addEventListener("DOMContentLoaded", function() {
-    var inputElement = document.getElementById('inputField');
-
-    // Function to show the box
-    function showBox() {
-        document.getElementById("popupBox").style.display = "block";
-    }
-
-    // Function to hide the box
-    function hideBox() {
-        document.getElementById("popupBox").style.display = "none";
-    }
-
-    // Example function to determine if it's your turn (replace with your logic)
-    function isYourTurn() {
-        // Replace this condition with your actual condition to check if it's your turn
-        return true; // For example, always true for demonstration
-    }
-
-    // Check if it's your turn and show/hide the box accordingly
-    function checkTurn() {
-        if (isYourTurn()) {
-            showBox();
-        } else {
-            hideBox();
-        }
-    }
-
-    // Call checkTurn function periodically or whenever appropriate
-    setInterval(checkTurn, 1000); // Check every second (adjust as needed)
-
-    // Add event listener to the input field
-    inputElement.addEventListener("input", function() {
-        console.log("Input field changed");
-        document.getElementById('DinTur').style.display = "none"; // Adjusted to target DinTur element
-    });
-
-    inputElement.addEventListener('keydown', function(event) {
-        if (inputElement.value.length >= 1) {
-            event.preventDefault();
-        }
-    });
-
-    function handleKeyPress(event) {
-        if (event.key === "Enter") {      
-            displayText();
-        }
-    }
-
-    function displayText() {
-        const inputText = document.getElementById("inputField").value;
-        document.getElementById("output").innerText = inputText;
-        console.log(inputText);
-    }
-
-    document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
-});
-
 </script>
 
 
@@ -261,7 +203,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <a>HANGMAN</a>
 </div>
 
-<div id="DinTur" class="flexbox3">
+<div id="dinTur" class="flexbox3">
   <a>DIN TUR</a>
 </div>
 
