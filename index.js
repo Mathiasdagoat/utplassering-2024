@@ -96,8 +96,6 @@ ctx.strokeStyle = "black";
 ctx.stroke();
 }
 
-
-
 const socket = io("http://localhost:3000");
 
 
