@@ -96,6 +96,49 @@ ctx.strokeStyle = "black";
 ctx.stroke();
 }
 
+window.addEventListener('DOMContentLoaded', function() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const username = localStorage.getItem('username');
+
+    if (isLoggedIn && username) {
+        document.getElementById('usernameList').style.display = 'block';
+        document.getElementById('loggedInUsername').textContent = username;
+        document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+    } else {
+        document.getElementById('loginPopup').style.display = 'block';
+    }
+});
+
+document.getElementById('usernameForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('usernameInput').value;
+    saveUsername(username);
+    document.getElementById('loginPopup').style.display = 'none';
+    document.getElementById('usernameList').style.display = 'block';
+    document.getElementById('loggedInUsername').textContent = username;
+    document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+});
+
+function saveUsername(username) {
+    localStorage.setItem('username', username);
+    localStorage.setItem('isLoggedIn', 'true'); 
+    console.log('User logged in');
+}
+
+window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('username');
+    localStorage.setItem('isLoggedIn', 'false'); 
+    console.log('User logged in');    
+});
+
+let boxNone = 3;
+
+if(boxNone == 3) {
+    var flexbox3Elements = document.querySelectorAll(".flexbox4");
+    flexbox3Elements.forEach(function(element) {
+        element.style.display = "none";
+    })} 
+
 const socket = io("http://localhost:3000");
 
 
