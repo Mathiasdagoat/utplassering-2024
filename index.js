@@ -122,33 +122,21 @@ document.getElementById('usernameForm').addEventListener('submit', function(even
 function saveUsername(username) {
     localStorage.setItem('username', username);
     localStorage.setItem('isLoggedIn', 'true'); 
-    console.log(username, "logget inn");
+    console.log('User logged in');
 }
 
 window.addEventListener('beforeunload', function() {
     localStorage.removeItem('username');
     localStorage.setItem('isLoggedIn', 'false'); 
-    console.log(username, "logget out");    
+    console.log('User logged in');    
 });
-
-
-
-
 
 
 
 const socket = io("http://localhost:3000");
 
-socket.on("connect", ()=> {
-    console.log(socket.id);
-});
-socket.on("Hello", (arg) => {
-    console.log(arg)
-})
-socket.on("disconnect", () => {
-    console.log(socket.id);
-});
 
-socket.emit("hello", "world");
+
+
 
 

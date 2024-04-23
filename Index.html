@@ -121,7 +121,7 @@
           margin: 1px;
           position: relative;
           left: 3%;
-          top: -70%;
+          top: -76.3%;
           width: 14%;
           height: 3%;
           border-radius: 55%;
@@ -156,11 +156,12 @@
 <script src="index.js" type="module"></script>
 
 <script>
-
     function toggleBackgroundColor() {
         document.body.classList.toggle('darkmode');
     }
-    var inputElement = document.getElementById('inputField');
+    var inputElement = document.getElementById('inputField').addEventListener("input", function() {
+    hideBox();
+    })
 
     inputElement.addEventListener('keydown', function(event) {
             if (inputElement.value.length >= 1) {
@@ -176,13 +177,23 @@
 
 function displayText() {
     const inputText = document.getElementById("inputField").value;
-    document.getElementById("output").innerText = inputText;
+    const outputElement = document.getElementById("output");
+    outputElement.innerText = inputText;
+    const flexbox4Element = document.getElementsByClassName("flexbox4")[0];
+    flexbox4Element.style.display = "block";
     console.log(inputText);
 }
-
 document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
+let boxNone = 3;
 
+if(boxNone == 3) {
+    var flexbox3Elements = document.querySelectorAll(".flexbox4");
+    flexbox3Elements.forEach(function(element) {
+        element.style.display = "none";
+    })} 
 </script>
+
+
 
 
 
@@ -201,11 +212,11 @@ document.getElementById("inputField").addEventListener("keydown", handleKeyPress
   <a>HANGMAN</a>
 </div>
 
-<div class="flexbox3">
+<div id="dinTur" class="flexbox3">
   <a>DIN TUR</a>
 </div>
 
-<div class="flexbox4">
+<div id="IkkeDinTur" class="flexbox4">
   <a>IKKE DIN TUR</a>
 </div>
 
