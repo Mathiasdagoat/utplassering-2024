@@ -139,4 +139,5 @@ socket.on("disconnect", () => {
     console.log(socket.id);
 });
 
+socket.emit("hello", "world");
 
