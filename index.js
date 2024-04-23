@@ -96,12 +96,45 @@ ctx.strokeStyle = "black";
 ctx.stroke();
 }
 
+window.addEventListener('DOMContentLoaded', function() {
+    const username = localStorage.getItem('username');
+    if (username) {
+        document.getElementById('usernameList').style.display = 'block';
+        document.getElementById('loggedInUsername').textContent = username;
+        document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+    } else {
+        document.getElementById('loginPopup').style.display = 'block';
+    }
+});
+
+document.getElementById('usernameForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('usernameInput').value;
+    saveUsername(username);
+    document.getElementById('loginPopup').style.display = 'none';
+    document.getElementById('usernameList').style.display = 'block';
+    document.getElementById('loggedInUsername').textContent = username;
+    document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+});
+
+function saveUsername(username) {
+
+    localStorage.setItem('username', username);
+}
+
+window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('username');
+});
+
+
 const socket = io("http://localhost:3000");
 
 socket.on("connect", ()=> {
     console.log(socket.id);
 });
-
+socket.on("Hello", (arg) => {
+    console.log(arg)
+})
 socket.on("disconnect", () => {
     console.log(socket.id);
 });
