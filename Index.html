@@ -178,11 +178,14 @@
 
 function displayText() {
     const inputText = document.getElementById("inputField").value;
-    document.getElementById("output").innerText = inputText;
+    const outputElement = document.getElementById("output");
+    outputElement.innerText = inputText;
+    const flexbox4Element = document.getElementsByClassName("flexbox4")[0];
+    flexbox4Element.style.display = "block";
     console.log(inputText);
 }
-
 document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
+
 
 </script>
 
