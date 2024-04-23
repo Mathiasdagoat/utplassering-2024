@@ -122,14 +122,16 @@ document.getElementById('usernameForm').addEventListener('submit', function(even
 function saveUsername(username) {
     localStorage.setItem('username', username);
     localStorage.setItem('isLoggedIn', 'true'); 
-    console.log('User logged in');
+    console.log(username, "logget inn");
 }
 
 window.addEventListener('beforeunload', function() {
     localStorage.removeItem('username');
     localStorage.setItem('isLoggedIn', 'false'); 
-    console.log('User logged in');    
+    console.log(username, "logget out");    
 });
+
+
 
 
 
