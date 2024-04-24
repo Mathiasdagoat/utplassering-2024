@@ -152,7 +152,7 @@ if(boxNone == 3) {
 
         if (pattern.test(username)) {
 
-            document.body.innerHTML = "<div style='color: black; text-align: center; margin-top: 20%;'><h1>nu uh</h1></div>";
+            document.body.innerHTML = "<div style='color: black; text-align: center; font-size: 150px; margin-top: 10%;'><h1>nu uh</h1></div>";
         } else {
 
             document.getElementById("usernameForm").reset();
