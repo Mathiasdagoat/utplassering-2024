@@ -147,7 +147,7 @@ if(boxNone == 3) {
         var username = document.getElementById("usernameInput").value.toLowerCase(); 
     
 
-        var pattern = /fuck|faen|helvete|skibidi|sigma|ohio|rizz|sigve|fransk|pedo|homo|homse|femboy|gay|neger|nigger|f u c k|f a e n|h e l v e t e|s k i b i d i|s i g m a|o h i o|r i z z|s i g v e|f r a n s k|p e d o|h o m o|h o m s e|f e m b o y|g a y|n e g e r|n i g g e r|w/;
+        var pattern = /fuck|faen|helvete|skibidi|sigma|ohio|rizz|sigve|fransk|pedo|homo|homse|femboy|gay|neger|nigger|f u c k|f a e n|h e l v e t e|s k i b i d i|s i g m a|o h i o|r i z z|s i g v e|f r a n s k|p e d o|h o m o|h o m s e|f e m b o y|g a y|n e g e r|n i g g e rw/;
     
 
         if (pattern.test(username)) {
@@ -166,17 +166,3 @@ socket.on("connection", () => {
     console.log(socket.id)
   socket.emit("hallo");
 });
-
-
-function revealRandomLetter() {
-    var hiddenLetters = document.querySelectorAll('.hangman-letter:not(.visible)');
-    if (hiddenLetters.length > 0) {
-      var randomIndex = Math.floor(Math.random() * hiddenLetters.length);
-      hiddenLetters[randomIndex].classList.add('visible');
-    }
-  }
-
-  // Example: reveal a random letter when the button is clicked
-  document.getElementById('revealButton').addEventListener('click', function() {
-    revealRandomLetter();
-  });
