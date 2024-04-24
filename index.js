@@ -115,33 +115,59 @@ document
     event.preventDefault();
     const username = document.getElementById("usernameInput").value;
     saveUsername(username);
-    document.getElementById("loginPopup").style.display = "none";
-    document.getElementById("usernameList").style.display = "block";
-    document.getElementById("loggedInUsername").textContent = username;
-    document.getElementById("welcomeMessage").textContent =
-      "Welcome, " + username + "!";
-  });
+    document.getElementById('loginPopup').style.display = 'none';
+    document.getElementById('usernameList').style.display = 'block';
+    document.getElementById('loggedInUsername').textContent = username;
+    document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username;
+});
 
 function saveUsername(username) {
-  localStorage.setItem("username", username);
-  localStorage.setItem("isLoggedIn", "true");
-  console.log("User logged in");
+    localStorage.setItem('username', username);
+    localStorage.setItem('isLoggedIn', 'true'); 
+    console.log(username, "logged in");
 }
 
-window.addEventListener("beforeunload", function () {
-  localStorage.removeItem("username");
-  localStorage.setItem("isLoggedIn", "false");
-  console.log("User logged in");
+window.addEventListener('beforeunload', function() {
+    localStorage.removeItem('username');
+    localStorage.setItem('isLoggedIn', 'false'); 
+    console.log(username, "logged out");    
 });
 
 let boxNone = 3;
 
-if (boxNone == 3) {
-  var flexbox3Elements = document.querySelectorAll(".flexbox4");
-  flexbox3Elements.forEach(function (element) {
-    element.style.display = "none";
-  });
-}
+if(boxNone == 3) {
+    var flexbox3Elements = document.querySelectorAll(".flexbox4");
+    flexbox3Elements.forEach(function(element) {
+        element.style.display = "none";
+    })} 
+
+    const bannedWords = ['Faen', 'Penis', 'Fuck', 'Homse', 'Neger', 'Nigger', 'Helvete', 'Helvetes', 'helvetes', 'Skibbidi', 'Sigma', 'Beta', 'Ohio']; 
+
+
+    function isWordBanned(word) {
+        return bannedWords.includes(word.toLowerCase());
+    }
+    
+
+    function setDocumentBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+    
+
+    document.getElementById('usernameInput').addEventListener('input', function() {
+        const enteredText = this.value.trim(); 
+        const words = enteredText.split(/\s+/); 
+    
+        const isBanned = words.some(word => isWordBanned(word));
+        
+
+        if (isBanned) {
+            setDocumentBackgroundColor('white');
+        } else {
+
+            setDocumentBackgroundColor('initial'); 
+        }
+    });
 
 const socket = io("ws://localhost:3000");
 
