@@ -155,50 +155,6 @@
 
 <script src="index.js" type="module"></script>
 
-<script>
-    function toggleBackgroundColor() {
-        document.body.classList.toggle('darkmode');
-    }
-    var inputElement = document.getElementById('inputField').addEventListener("input", function() {
-    hideBox();
-    });
-
-    inputElement.addEventListener('keydown', function(event) {
-            if (inputElement.value.length >= 1) {
-                event.preventDefault();
-}
-});
-
-    function handleKeyPress(event) {
-    if (event.key === "Enter") {      
-        displayText();
-    }
-}
-
-function displayText() {
-    const inputText = document.getElementById("inputField").value;
-    const outputElement = document.getElementById("output");
-    outputElement.innerText = inputText;
-    const flexbox4Element = document.getElementsByClassName("flexbox4")[0];
-    flexbox4Element.style.display = "block";
-    console.log(inputText);
-}
-document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
-let boxNone = 3;
-
-if(boxNone == 3) {
-    var flexbox3Elements = document.querySelectorAll(".flexbox4");
-    flexbox3Elements.forEach(function(element) {
-        element.style.display = "none";
-    })} 
-
-    
-</script>
-
-
-
-
-
 <canvas id="stickman" width="350" height="225" style="border:1px solid #ff0000;">
   Sorry, your browser does not support canvas.
   </canvas>
@@ -238,7 +194,7 @@ if(boxNone == 3) {
 <div id="loginPopup">
   <h2 style="color: rgb(0, 0, 0); position: relative; left: 50px; ">Welcome! Please Login</h2>
   <form id="usernameForm">
-      <input style="width: 330; left: 0%;" type="text" id="usernameInput" placeholder="Enter Username" required>
+      <input style="width: 330; left: 0%;" type="text"  class="loginPopUp" id="usernameInput" placeholder="Enter Username" required>
       <button style="position: relative; top: 10; left: 0%;" type="submit">Submit</button>
   </form>
 </div>
@@ -246,6 +202,48 @@ if(boxNone == 3) {
 <div id="usernameList" style="display: none; width: 250px; position: relative; top: -105%; left: 80% ;">
   <h2 id="welcomeMessage">Welcome, <span id="loggedInUsername"></span>!</h2>
 </div>
+
+<script>
+  function toggleBackgroundColor() {
+      document.body.classList.toggle('darkmode');
+  }
+  var inputElement = document.getElementById('inputField').addEventListener("input", function() {
+  hideBox();
+  });
+
+  inputElement.addEventListener('keydown', function(event) {
+          if (inputElement.value.length >= 1) {
+              event.preventDefault();
+}
+});
+
+  function handleKeyPress(event) {
+  if (event.key === "Enter") {      
+      displayText();
+  }
+}
+
+function displayText() {
+  const inputText = document.getElementById("inputField").value;
+  const outputElement = document.getElementById("output");
+  outputElement.innerText = inputText;
+  const flexbox4Element = document.getElementsByClassName("flexbox4")[0];
+  flexbox4Element.style.display = "block";
+  console.log(inputText);
+}
+document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
+let boxNone = 3;
+
+if(boxNone == 3) {
+  var flexbox3Elements = document.querySelectorAll(".flexbox4");
+  flexbox3Elements.forEach(function(element) {
+      element.style.display = "none";
+  })} 
+
+  
+
+  
+</script>
 
 </body>
 
