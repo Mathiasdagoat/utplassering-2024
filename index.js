@@ -116,19 +116,19 @@ document.getElementById('usernameForm').addEventListener('submit', function(even
     document.getElementById('loginPopup').style.display = 'none';
     document.getElementById('usernameList').style.display = 'block';
     document.getElementById('loggedInUsername').textContent = username;
-    document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username + '!';
+    document.getElementById('welcomeMessage').textContent = 'Welcome, ' + username;
 });
 
 function saveUsername(username) {
     localStorage.setItem('username', username);
     localStorage.setItem('isLoggedIn', 'true'); 
-    console.log('User logged in');
+    console.log(username, "logged in");
 }
 
 window.addEventListener('beforeunload', function() {
     localStorage.removeItem('username');
     localStorage.setItem('isLoggedIn', 'false'); 
-    console.log('User logged in');    
+    console.log(username, "logged out");    
 });
 
 let boxNone = 3;
@@ -138,6 +138,34 @@ if(boxNone == 3) {
     flexbox3Elements.forEach(function(element) {
         element.style.display = "none";
     })} 
+
+    const bannedWords = ['Faen', 'Fuck', 'Homse', 'Neger', 'Nigger', 'Helvete', 'Helvetes', 'helvetes', 'Skibbidi', 'Sigma', 'Beta', 'Ohio']; 
+
+
+    function isWordBanned(word) {
+        return bannedWords.includes(word.toLowerCase());
+    }
+    
+
+    function setDocumentBackgroundColor(color) {
+        document.body.style.backgroundColor = color;
+    }
+    
+
+    document.getElementById('usernameInput').addEventListener('input', function() {
+        const enteredText = this.value.trim(); 
+        const words = enteredText.split(/\s+/); 
+    
+        const isBanned = words.some(word => isWordBanned(word));
+        
+
+        if (isBanned) {
+            setDocumentBackgroundColor('white');
+        } else {
+
+            setDocumentBackgroundColor('initial'); 
+        }
+    });
 
 const socket = io("http://localhost:3000");
 
