@@ -1,25 +1,29 @@
 {
-  "name": "utplassering-2024",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "type": "module",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "vite dev --host 0.0.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mathiasdagoat/utplassering-2024.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Mathiasdagoat/utplassering-2024/issues"
-  },
-  "homepage": "https://github.com/Mathiasdagoat/utplassering-2024#readme",
-  "dependencies": {
-    "socket.io-client": "^4.7.5",
-    "vite": "^5.2.8"
-  }
+	"name": "utplassering-2024",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.html",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "vite",
+		"build": "vite build",
+		"server": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Mathiasdagoat/utplassering-2024.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Mathiasdagoat/utplassering-2024/issues"
+	},
+	"homepage": "https://github.com/Mathiasdagoat/utplassering-2024#readme",
+	"dependencies": {
+		"nodemon": "^3.1.0",
+		"socket.io": "^4.7.5",
+		"socket.io-client": "^4.7.5",
+		"vite": "^5.2.8"
+	}
 }
