@@ -153,7 +153,7 @@ document
 			.value.toLowerCase();
 
 		var pattern =
-			/fuck|faen|helvete|skibidi|sigma|ohio|rizz|sigve|fransk|pedo|homo|homse|femboy|gay|f u c k|f a e n|h e l v e t e|s k i b i d i|s i g m a|o h i o|r i z z|s i g v e|f r a n s k|p e d o|h o m o|h o m s e|f e m b o y|g a y|w/;
+			/fuck|faen|helvete|skibidi|sigma|ohio|rizz|sigve|fransk|pedo|homo|homse|femboy|gay|neger|nigger|f u c k|f a e n|h e l v e t e|s k i b i d i|s i g m a|o h i o|r i z z|s i g v e|f r a n s k|p e d o|h o m o|h o m s e|f e m b o y|g a y|n e g e r|n i g g e r|w/;
 
 		if (pattern.test(username)) {
 			document.body.innerHTML =
