@@ -162,7 +162,3 @@ if(boxNone == 3) {
 const socket = io("ws://localhost:3000");
 
 
-socket.on("connection", () => {
-    console.log(socket.id)
-  socket.emit("hallo");
-});

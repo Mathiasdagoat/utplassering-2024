@@ -1,16 +1,12 @@
-import { Server } from "socket.io";
-
-const io = new Server({
-	cors: { origin: ["http://localhost:5000"] },
+socket.on("connection", () => {
+    console.log(socket.id)
+    if(guessedLetter){
+        socket.emit("guessLetter", letter);
+        guessedLetter = false;
+    }
 });
 
-io.on("connection", (socket) => {
-	console.log("Connected to server");
-	socket.emit("connection");
-
-	socket.on("hallo", () => {
-		console.log("Hallo!");
-	});
-});
-
-io.listen(3000);
+//legge til server.js i index.html √
+//lage letter varabel og guessedLetter variabel
+//hente bokstaven som blir gjettet. også legge den i letter variabelen.
+//Når man gjetter en bokstav ved å trykke enter så skal dere gjøre guessedLetter til true
