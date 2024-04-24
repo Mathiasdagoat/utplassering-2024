@@ -141,30 +141,21 @@ if(boxNone == 3) {
         element.style.display = "none";
     })} 
 
-    const bannedWords = ['Faen', 'Penis', 'Fuck', 'Homse', 'Neger', 'Nigger', 'Helvete', 'Helvetes', 'helvetes', 'Skibbidi', 'Sigma', 'Beta', 'Ohio', 'skibidi']; 
-
-    function isWordBanned(word) {
-        return bannedWords.includes(word.toLowerCase());
-    }
+    document.getElementById("usernameForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+    
+        var username = document.getElementById("usernameInput").value.toLowerCase(); 
     
 
-    function setDocumentBackgroundColor(color) {
-        document.body.style.backgroundColor = color;
-    }
+        var pattern = /fuck|faen|helvete|skibidi|sigma|ohio|rizz|sigve|fransk|pedo|homo|homse|femboy|gay|f u c k|f a e n|h e l v e t e|s k i b i d i|s i g m a|o h i o|r i z z|s i g v e|f r a n s k|p e d o|h o m o|h o m s e|f e m b o y|g a y|w/;
     
 
-    document.getElementById('usernameInput').addEventListener('input', function() {
-        const enteredText = this.value.trim(); 
-        const words = enteredText.split(/\s+/); 
-    
-        const isBanned = words.some(word => isWordBanned(word));
-        
+        if (pattern.test(username)) {
 
-        if (isBanned) {
-            setDocumentBackgroundColor('white');
+            document.body.innerHTML = "<div style='color: black; text-align: center; font-size: 150px; margin-top: 10%;'><h1>nu uh</h1></div>";
         } else {
 
-            setDocumentBackgroundColor('initial'); 
+            document.getElementById("usernameForm").reset();
         }
     });
 
