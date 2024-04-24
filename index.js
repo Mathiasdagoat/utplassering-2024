@@ -167,16 +167,3 @@ socket.on("connection", () => {
   socket.emit("hallo");
 });
 
-
-function revealRandomLetter() {
-    var hiddenLetters = document.querySelectorAll('.hangman-letter:not(.visible)');
-    if (hiddenLetters.length > 0) {
-      var randomIndex = Math.floor(Math.random() * hiddenLetters.length);
-      hiddenLetters[randomIndex].classList.add('visible');
-    }
-  }
-
-  // Example: reveal a random letter when the button is clicked
-  document.getElementById('revealButton').addEventListener('click', function() {
-    revealRandomLetter();
-  });
