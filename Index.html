@@ -76,31 +76,30 @@
 
 
   .hangman-container {
-            text-align: center;
-            margin-top: 20px;
-            position: relative;
-            top: -50%;
-            
-        }
-        .hangman-letter {
-            display: inline-block;
-            font-size: 300%;
-            font-weight: bold;
-            position: relative;
-            margin-right: 10px; 
-            margin-bottom: 20px; 
-            width: 5%;
-            height: 7%;
-        }
-        .hangman-letter::after {
-            content: "";
-            display: block;
-            width: 100%;
-            border-bottom: 1px solid black; 
-            position: absolute;
-            bottom: -3px; 
-            left: 0;
-        }
+      text-align: center;
+      margin-top: 20px;
+      position: relative;
+      top: -50%;
+    }
+    .hangman-letter {
+      display: none; /* Initially hide the letters */
+      font-size: 300%;
+      font-weight: bold;
+      position: relative;
+      margin-right: 10px; 
+      margin-bottom: 20px; 
+      width: 5%;
+      height: 7%;
+    }
+    .hangman-letter::after {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid black; 
+      position: absolute;
+      bottom: -3px; 
+      left: 0;
+    }
         
         .flexbox4 {
           background-color: rgb(255, 0, 0);
@@ -151,7 +150,13 @@
         flex-direction: column;
     }
 
+    .visible {
+      display: inline-block; /* Show the letters */
+    }
+
     </style>
+
+<button id="revealButton">Reveal Letter</button>
 
 <script src="index.js" type="module"></script>
 
@@ -181,13 +186,13 @@
 
 <div class="hangman-container">
   <div class="hangman-word" id="hangmanWord">
-      <span class="hangman-letter">P</span>
-      <span class="hangman-letter">O</span>
-      <span class="hangman-letter">T</span>
-      <span class="hangman-letter">E</span>
-      <span class="hangman-letter">T</span>
-      <span class="hangman-letter">E</span>
-      <span class="hangman-letter">R</span>
+    <span class="hangman-letter" data-letter="P">P</span>
+    <span class="hangman-letter" data-letter="O">O</span>
+    <span class="hangman-letter" data-letter="T">T</span>
+    <span class="hangman-letter" data-letter="E">E</span>
+    <span class="hangman-letter" data-letter="T">T</span>
+    <span class="hangman-letter" data-letter="E">E</span>
+    <span class="hangman-letter" data-letter="R">R</span>
   </div>
 </div>
 
