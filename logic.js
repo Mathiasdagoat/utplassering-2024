@@ -17,7 +17,8 @@ function handleKeyPress() {
 
 
     if (event.key === "Enter") {
-        displayText();
+        displayText()
+        hasGuessedLetter()
     }
 }
 
