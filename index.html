@@ -109,32 +109,6 @@
 			left: 0;
 		}
 
-		.flexbox4 {
-			background-color: rgb(255, 0, 0);
-			padding: 2px;
-			margin: 1px;
-			position: relative;
-			left: 3%;
-			top: -80%;
-			width: 14%;
-			height: 3%;
-			border-radius: 55%;
-			text-align: center;
-		}
-
-		.flexbox3 {
-			background-color: rgb(0, 255, 0);
-			padding: 2px;
-			margin: 1px;
-			position: relative;
-			left: 3%;
-			top: -76.3%;
-			width: 14%;
-			height: 3%;
-			border-radius: 55%;
-			text-align: center;
-		}
-
 		canvas {
 			position: relative;
 			top: 25%;
@@ -159,20 +133,13 @@
 			flex-direction: column;
 		}
 
-		.visible {
-			display: inline-block;
-			/* Show the letters */
-		}
 	</style>
-
-	<button id="revealButton">Reveal Letter</button>
-
 
 	<canvas id="stickman" width="350" height="225" style="border:1px solid #ff0000;">
 		Sorry, your browser does not support canvas.
 	</canvas>
 
-	<input type="text" id="inputField" onkeydown="handleKeyPress(event)">
+	<input type="text" id="inputField" maxlength="1" onkeydown="handleKeyPress(event)">
 
 	<div class="flexbox">
 		<div id="output"></div>
@@ -182,24 +149,15 @@
 		<a>HANGMAN</a>
 	</div>
 
-	<div id="dinTur" class="flexbox3">
-		<a>DIN TUR</a>
-	</div>
-
-	<div id="IkkeDinTur" class="flexbox4">
-		<a>IKKE DIN TUR</a>
-	</div>
-
-
 	<div class="hangman-container">
 		<div class="hangman-word" id="hangmanWord">
-			<span class="hangman-letter" data-letter="P">P</span>
-			<span class="hangman-letter" data-letter="O">O</span>
-			<span class="hangman-letter" data-letter="T">T</span>
-			<span class="hangman-letter" data-letter="E">E</span>
-			<span class="hangman-letter" data-letter="T">T</span>
-			<span class="hangman-letter" data-letter="E">E</span>
-			<span class="hangman-letter" data-letter="R">R</span>
+			<span class="hangman-letter">P</span>
+			<span class="hangman-letter">O</span>
+			<span class="hangman-letter">T</span>
+			<span class="hangman-letter">E</span>
+			<span class="hangman-letter">T</span>
+			<span class="hangman-letter">E</span>
+			<span class="hangman-letter">R</span>
 		</div>
 	</div>
 
@@ -214,54 +172,9 @@
 
 	<div id="usernameList" style="display: none; width: 250px; position: relative; top: -98%; left: 80% ;">
 		<h2 id="welcomeMessage">Welcome, <span id="loggedInUsername"></span>!</h2>
+
+    <div id="livesUsedDisplay">Lives Used: 10</div>
 	</div>
-
-
-	<script>
-		function toggleBackgroundColor() {
-			document.body.classList.toggle('darkmode');
-		}
-		var inputElement = document.getElementById('inputField').addEventListener("input", function () {
-			hideBox();
-		});
-
-		inputElement.addEventListener('keydown', function (event) {
-			if (inputElement.value.length >= 1) {
-				event.preventDefault();
-			}
-		});
-
-		function handleKeyPress(event) {
-			if (event.key === "Enter") {
-				displayText();
-			}
-		}
-
-		function displayText() {
-			const inputText = document.getElementById("inputField").value;
-			const outputElement = document.getElementById("output");
-			outputElement.innerText = inputText;
-			const flexbox4Element = document.getElementsByClassName("flexbox4")[0];
-			flexbox4Element.style.display = "block";
-			console.log(inputText);
-		}
-		document.getElementById("inputField").addEventListener("keydown", handleKeyPress);
-		let boxNone = 3;
-
-		if (boxNone == 3) {
-			var flexbox3Elements = document.querySelectorAll(".flexbox4");
-			flexbox3Elements.forEach(function (element) {
-				element.style.display = "none";
-			})
-		}
-
-
-
-
-	</script>
-<script src="index.js" type="module"></script>
-<script src="server.js" type="module"></script>
-
 
     <script src="index.js" type="module"></script>
     <script src="logic.js" type="text/javascript"></script>
