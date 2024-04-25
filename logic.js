@@ -13,7 +13,8 @@ inputElement.addEventListener('keydown', function (event) {
 
 function handleKeyPress(event) {
     if (event.key === "Enter") {
-        displayText();
+        displayText()
+        hasGuessedLetter()
     }
 }
 

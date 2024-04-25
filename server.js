@@ -1,7 +1,13 @@
 
-let guessedLetter ="P"; {
-	document.getElementById('guessLetter'); 
+
+let guessLetter = false;
+let letter = 	document.getElementById('guessLetter'); 
+
+function hasGuessedLetter(){
+	guessLetter = true;
+	console.log(guessLetter)
 }
+
 
 socket.on("connection", () => {
     console.log(socket.id)
