@@ -66,7 +66,7 @@
 			margin-top: 20px;
 			display: block;
 			color: black;
-			font-size: 50px;
+			font-size: 30px;
 		}
 
 		.darkmode {
@@ -88,8 +88,7 @@
 		}
 
 		.hangman-letter {
-			display: none;
-			/* Initially hide the letters */
+			display: inline-block;
 			font-size: 300%;
 			font-weight: bold;
 			position: relative;
@@ -97,17 +96,9 @@
 			margin-bottom: 20px;
 			width: 5%;
 			height: 7%;
+            border-bottom: 1px solid black;
 		}
 
-		.hangman-letter::after {
-			content: "";
-			display: block;
-			width: 100%;
-			border-bottom: 1px solid black;
-			position: absolute;
-			bottom: -3px;
-			left: 0;
-		}
 
 		canvas {
 			position: relative;
@@ -151,13 +142,16 @@
 
 	<div class="hangman-container">
 		<div class="hangman-word" id="hangmanWord">
-			<span class="hangman-letter">P</span>
-			<span class="hangman-letter">O</span>
-			<span class="hangman-letter">T</span>
-			<span class="hangman-letter">E</span>
-			<span class="hangman-letter">T</span>
-			<span class="hangman-letter">E</span>
-			<span class="hangman-letter">R</span>
+
+            <span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+			<span class="hangman-letter"> </span>
+            <span class="hangman-letter"> </span>
+
 		</div>
 	</div>
 
@@ -174,11 +168,157 @@
 		<h2 id="welcomeMessage">Welcome, <span id="loggedInUsername"></span>!</h2>
 
     <div id="livesUsedDisplay">Lives Used: 10</div>
+
+    <div id="lettersLeftDisplay">Letters Left: 7 Skriv Q til slutt</div>
+
+
 	</div>
 
     <script src="index.js" type="module"></script>
     <script src="logic.js" type="text/javascript"></script>
     <script src="server.js" type="text/javascript"></script>
+    <script>
+        const correctWord = "KUNSTNER";
+        let livesUsed = 0;
+        let lettersLeft = 8;
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                displayText()
+                hasGuessedLetter()
+                console.log("Potet")
+            }
+        }
+        
+        function handleKeyPress(event) {
+
+            const inputValue = document.getElementById("inputField").value.toUpperCase();
+            const outputDiv = document.getElementById("output");
+            const canvas = document.getElementById("stickman");
+            const ctx = canvas.getContext("2d");
+        
+            if (inputValue.length === 1 && /^[A-Za-z]+$/.test(inputValue)) {
+                if (correctWord.includes(inputValue)) {
+                    const hangmanWord = document.getElementById("hangmanWord");
+                    const hangmanLetters = hangmanWord.getElementsByClassName("hangman-letter");
+                    for (let i = 0; i < correctWord.length; i++) {
+                        if (correctWord[i] === inputValue) {
+                            hangmanLetters[i].innerHTML = correctWord[i];
+                            inputField.value = '';
+
+                    lettersLeft--;
+                    document.getElementById("lettersLeftDisplay").textContent = "Letters Left: " + lettersLeft + " " + "Skriv Q til slutt";
+                        }
+                    }
+                } else {
+                    outputDiv.textContent += inputValue;
+                    livesUsed++;
+                    document.getElementById("livesUsedDisplay").textContent = "Lives Used: " + livesUsed;
+                    inputField.value = '';
+
+    if (lettersLeft == 0) {
+    document.body.innerHTML = "<div style='color: black; background-color:green; text-align: center; font-size: 150px; margin-top: 10%;'><h1>WINNER</h1></div>";
+  }
+                    
+        
+
+if (livesUsed  > 0) {
+	ctx.beginPath();
+	ctx.moveTo(10, 220);
+	ctx.lineTo(150, 220);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "green";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 1) {
+	ctx.beginPath();
+	ctx.moveTo(60, 80);
+	ctx.lineTo(60, 220);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "green";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 2) {
+	ctx.beginPath();
+	ctx.moveTo(170, 30);
+	ctx.lineTo(60, 80);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "green";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 3) {
+	ctx.beginPath();
+	ctx.moveTo(170, 30);
+	ctx.lineTo(170, 80);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "brown";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 4) {
+	ctx.beginPath();
+	ctx.arc(170, 87, 7, 0, 2 * Math.PI);
+	ctx.strokeStyle = "black";
+	ctx.fillStyle = "white";
+	ctx.fill();
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 5) {
+	ctx.beginPath();
+	ctx.moveTo(170, 95);
+	ctx.lineTo(170, 124);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 6) {
+	ctx.beginPath();
+	ctx.moveTo(170, 99);
+	ctx.lineTo(160, 120);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 7) {
+	ctx.beginPath();
+	ctx.moveTo(170, 99);
+	ctx.lineTo(180, 120);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 8) {
+	ctx.beginPath();
+	ctx.moveTo(170, 120);
+	ctx.lineTo(165, 145);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  }
+  
+  if (livesUsed > 9) {
+	ctx.beginPath();
+	ctx.moveTo(170, 120);
+	ctx.lineTo(175, 145);
+	ctx.lineWidth = 2;
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  }
+  
+  if (livesUsed == 10) {
+	  document.body.innerHTML = "<div style='color: black; background-color:red; text-align: center; font-size: 150px; margin-top: 10%;'><h1>LOSER</h1></div>";
+         }
+    }
+}};
+
+    </script>
 
 </body>
 
